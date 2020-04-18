@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "lodash": "^4.17.15",
     "rxjs": "^6.5.5"
   }
 }

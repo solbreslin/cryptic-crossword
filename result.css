@@ -1,0 +1,29 @@
+.results {
+  padding: 0;
+}
+
+.results li {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-bg-secondary);
+  box-shadow: var(--box-shadow) var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1.25rem;
+}
+
+.results .word {
+  position: relative;
+  z-index: 1;
+}
+
+.results .query {
+  background-color: yellow;
+  color: transparent;
+  position: absolute;
+  z-index: 0;
+}
+
+.results .match {
+  font-weight: 700;
+}

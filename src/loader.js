@@ -16,7 +16,7 @@ export default class Loader {
     this.letters = [...this.loader.querySelectorAll("div")];
 
     this.loadingInterval = setInterval(() => {
-      const rand = this.getRandomInt(this.letters.length);
+      const rand = this.getRandomInt(this.letters.length - 1);
 
       this.letters[rand].classList.add("active");
     }, LOADING_ANIMATION_INTERVAL);

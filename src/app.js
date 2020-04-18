@@ -1,12 +1,15 @@
 import MatchWord from "./match_word";
 import ApiService from "./api_service";
 import Loader from "./loader";
+import { isEqual } from "lodash";
 
 export default class App {
   constructor() {
     this.apiService = ApiService.getInstance();
     this.matchWord = MatchWord.getInstance();
     this.loader = Loader.getInstance();
+
+    this.matches = [];
   }
 
   init = () => {
@@ -23,7 +26,7 @@ export default class App {
 
   getDOMElements = () => {
     this.input = document.getElementById("query");
-    this.output = document.getElementById("answer");
+    this.output = document.getElementById("matches");
   };
 
   addEventListeners = () => {
@@ -39,8 +42,37 @@ export default class App {
   };
 
   onQuery = (value) => {
-    const match = this.matchWord.findMatch(this.apiService.data, value);
+    const matches = this.matchWord.getMatches(this.apiService.data, value);
 
-    this.output.textContent = match ? match : "";
+    this.matches = matches;
+    this.output.innerHTML = "";
+
+    this.matches.forEach((match) => {
+      this.output.appendChild(this.getResultTemplate(match, value));
+    });
   };
+
+  noNewMatches(matches) {
+    if (isEqual(matches, this.matches)) return true;
+  }
+
+  getResultTemplate(match, query) {
+    const li = document.createElement("li");
+    const w = document.createElement("p");
+    const m = document.createElement("p");
+    const q = document.createElement("p");
+    q.classList.add("query");
+    m.classList.add("match");
+    w.classList.add("word");
+
+    q.textContent = query;
+    w.textContent = match.Word;
+    m.textContent = match.Meaning;
+
+    li.appendChild(w);
+    li.appendChild(q);
+    li.appendChild(m);
+
+    return li;
+  }
 }
