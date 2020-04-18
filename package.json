@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/solbreslin/cryptic-crossword#readme",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "tabletop": "^1.6.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "rxjs": "^6.5.5"
   }
 }

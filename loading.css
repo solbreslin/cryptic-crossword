@@ -1,0 +1,45 @@
+.loader-wrapper {
+  align-items: center;
+  background-color: white;
+  border: 2px solid black;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.loader-wrapper.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.loader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.loader > div {
+  padding: 0.3em;
+  display: flex;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+  border: 2px solid;
+}
+
+.loader > div:not(:last-of-type) {
+  border-right: none;
+}
+
+.loader span {
+  opacity: 0;
+}
+
+.loader > div.active span {
+  opacity: 1;
+}

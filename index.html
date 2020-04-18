@@ -4,16 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./mvp.css" />
+    <link rel="stylesheet" href="./loading.css" />
     <title>Cryptic Crossword Help</title>
   </head>
   <body>
     <main>
       <section>
         <article>
-          <input type="text" placeholder="Search" id="i" />
-          <p id="o"></p>
+          <input type="text" placeholder="Search" id="query" />
+          <p id="answer"></p>
         </article>
       </section>
+      <div class="loader-wrapper" id="loader-wrapper">
+        <div class="loader" id="loader">
+          <div>
+            <span>L</span>
+          </div>
+          <div>
+            <span>O</span>
+          </div>
+          <div>
+            <span>A</span>
+          </div>
+          <div>
+            <span>D</span>
+          </div>
+          <div>
+            <span>I</span>
+          </div>
+          <div>
+            <span>N</span>
+          </div>
+          <div>
+            <span>G</span>
+          </div>
+        </div>
+      </div>
     </main>
     <script src="./index.js"></script>
   </body>
