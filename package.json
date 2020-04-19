@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "cssnano": "^4.1.10",
     "lodash": "^4.17.15",
+    "parcel-bundler": "^1.12.4",
     "rxjs": "^6.5.5"
   }
 }
