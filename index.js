@@ -1,5 +1,4 @@
-// import App from "./src/app";
+import App from "./src/app";
 
-// const app = new App();
-// app.init();
-console.log("test");
+const app = new App();
+app.init();

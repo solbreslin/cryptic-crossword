@@ -15,13 +15,13 @@ export default class App {
   init = () => {
     this.apiService.load();
     this.loader.init();
-    this.apiService.loaded$.subscribe((status) => {
-      if (status) {
-        this.getDOMElements();
-        this.addEventListeners();
-        this.loader.destroy();
-      }
-    });
+    // this.apiService.loaded$.subscribe((status) => {
+    //   if (status) {
+    //     this.getDOMElements();
+    //     this.addEventListeners();
+    //     this.loader.destroy();
+    //   }
+    // });
   };
 
   getDOMElements = () => {
