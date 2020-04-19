@@ -13,17 +13,22 @@
 }
 
 .results .word {
+  font-family: "Roboto Mono", monospace;
   position: relative;
   z-index: 1;
 }
 
 .results .query {
-  background-color: yellow;
+  background-color: hsl(56, 100%, 84%);
   color: transparent;
+  font-family: "Roboto Mono", monospace;
   position: absolute;
+  white-space: pre;
   z-index: 0;
 }
 
 .results .match {
-  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
 }

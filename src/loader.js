@@ -1,5 +1,5 @@
 const LOADING_ANIMATION_INTERVAL = 250;
-const FADE_OUT_TIME = 500;
+const FADE_OUT_TIME = 250;
 
 export default class Loader {
   constructor() {}
@@ -15,10 +15,15 @@ export default class Loader {
     this.loader = document.getElementById("loader");
     this.letters = [...this.loader.querySelectorAll("div")];
 
-    this.loadingInterval = setInterval(() => {
-      const rand = this.getRandomInt(this.letters.length - 1);
+    const randomSelection = this.getRandomSelection(this.letters.length);
 
-      this.letters[rand].classList.add("active");
+    let nextItem = 0;
+
+    this.loadingInterval = setInterval(() => {
+      if (nextItem === randomSelection.length) return;
+
+      this.letters[randomSelection[nextItem]].classList.add("active");
+      nextItem++;
     }, LOADING_ANIMATION_INTERVAL);
   }
 
@@ -31,9 +36,16 @@ export default class Loader {
         this.wrapper.parentElement.removeChild(this.wrapper);
       }, FADE_OUT_TIME);
     }
+
+    clearInterval(this.loadingInterval);
   };
 
-  getRandomInt = (max) => {
-    return Math.floor(Math.random() * Math.floor(max));
-  };
+  getRandomSelection(n) {
+    const arr = [...Array(n).keys()];
+
+    return arr
+      .map((a) => ({ sort: Math.random(), value: a }))
+      .sort((a, b) => a.sort - b.sort)
+      .map((a) => a.value);
+  }
 }

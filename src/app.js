@@ -57,6 +57,10 @@ export default class App {
   }
 
   getResultTemplate(match, query) {
+    const word = match.Word.toLowerCase();
+    const meaning = match.Meaning;
+    query = query.toLowerCase();
+
     const li = document.createElement("li");
     const w = document.createElement("p");
     const m = document.createElement("p");
@@ -65,9 +69,15 @@ export default class App {
     m.classList.add("match");
     w.classList.add("word");
 
+    const start = word.indexOf(query);
+
+    if (start > 0) {
+      q.style.transform = `translateX(${start}ch)`;
+    }
+
     q.textContent = query;
-    w.textContent = match.Word;
-    m.textContent = match.Meaning;
+    w.textContent = word;
+    m.textContent = meaning;
 
     li.appendChild(w);
     li.appendChild(q);
