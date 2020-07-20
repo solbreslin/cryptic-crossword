@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "cssnano": "^4.1.10",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "parcel-bundler": "^1.12.4",
     "rxjs": "^6.5.5"
   }
